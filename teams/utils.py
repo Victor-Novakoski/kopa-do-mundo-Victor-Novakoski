@@ -24,7 +24,7 @@ class ImpossibleTitlesError(Exception):
 
 
 def validate_title(title):
-    if title <= 0:
+    if title < 0:
         raise NegativeTitlesError("titles cannot be negative")
 
 
