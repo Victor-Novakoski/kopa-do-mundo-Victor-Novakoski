@@ -11,7 +11,6 @@ from .utils import (
     ImpossibleTitlesError,
     validate_impossible_titles,
 )
-import ipdb
 
 
 # Create your views here.
@@ -41,11 +40,11 @@ class TeamView(APIView):
             team_dict = model_to_dict(team)
             return Response(team_dict, status.HTTP_201_CREATED)
         except ImpossibleTitlesError as error:
-            return Response({"error": f'{error}'}, status.HTTP_400_BAD_REQUEST)
+            return Response({"error": f"{error}"}, status.HTTP_400_BAD_REQUEST)
         except NegativeTitlesError as error:
-            return Response({"error": f'{error}'}, status.HTTP_400_BAD_REQUEST)
+            return Response({"error": f"{error}"}, status.HTTP_400_BAD_REQUEST)
         except InvalidYearCupError as error:
-            return Response({"error": f'{error}'}, status.HTTP_400_BAD_REQUEST)
+            return Response({"error": f"{error}"}, status.HTTP_400_BAD_REQUEST)
 
 
 class TeamDetailView(APIView):
